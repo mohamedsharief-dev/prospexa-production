@@ -9,11 +9,32 @@
 
 const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
+const functions = require('firebase-functions');
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+// Define the function to handle search queries
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+exports.handleSearch = functions.https.onRequest((req, res) => {
+  try {
+    if (req.method !== "POST") {
+      res.status(405).send("Method Not Allowed");
+      return;
+    }
+
+    const searchQuery = req.body.searchQuery;
+
+    if (!searchQuery) {
+      res.status(400).send("Search query cannot be empty.");
+      return;
+    }
+
+    console.log("Received search query:", searchQuery);
+
+    // You can perform any processing or database operations here
+
+    // Send a response
+    res.status(200).json({ message: `Received search query: ${searchQuery}` });
+  } catch (error) {
+    console.error("Error handling search query:", error);
+    res.status(500).send("Internal Server Error");
+  }
+});
