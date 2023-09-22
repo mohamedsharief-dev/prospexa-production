@@ -11,8 +11,7 @@ const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 const functions = require('firebase-functions');
 
-// Define the function to handle search queries
-
+// formHandler Function - This function handles the form submission
 exports.handleSearch = functions.https.onRequest((req, res) => {
   try {
     if (req.method !== "POST") {
