@@ -78,3 +78,31 @@ document.addEventListener('DOMContentLoaded', function() {
     return false;  // Prevent the default form submission behavior
   });
 });
+
+
+// New code: Listen for changes to the businesswebaddress1 element
+document.addEventListener('DOMContentLoaded', function() {
+  const businessWebAddressElement = document.getElementById('businesswebaddress1');
+
+  // Observer to watch for changes in the href attribute of the businessWebAddressElement
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'href') {
+        const newDomain = businessWebAddressElement.getAttribute('href');
+
+        // Make an HTTP request to the Clearbit logo API to get the company logo
+        const clearbitLogoEndpoint = `https://logo.clearbit.com/${newDomain}`;
+        
+        // Update the image within the resultscard1 ID'd Div
+        const resultCardElement = document.getElementById('resultscard1');
+        const imgElement = resultCardElement.querySelector('img');
+        imgElement.src = clearbitLogoEndpoint;
+      }
+    });
+  });
+
+  // Configure the observer to watch for attribute changes
+  observer.observe(businessWebAddressElement, {
+    attributes: true,
+  });
+});
