@@ -10,30 +10,35 @@
 const {onRequest} = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
 const functions = require('firebase-functions');
+const cors = require('cors'); // Import the CORS library
 
-// formHandler Function - This function handles the form submission
+const corsHandler = cors({origin: true}); // Initialize CORS middleware
+
+// handleSearch Function - This function handles the form submission
 exports.handleSearch = functions.https.onRequest((req, res) => {
-  try {
-    if (req.method !== "POST") {
-      res.status(405).send("Method Not Allowed");
-      return;
+  corsHandler(req, res, () => {  // Wrap your function logic inside corsHandler
+    try {
+      if (req.method !== "POST") {
+        res.status(405).send("Method Not Allowed");
+        return;
+      }
+
+      const searchQuery = req.body.searchQuery;
+
+      if (!searchQuery) {
+        res.status(400).send("Search query cannot be empty.");
+        return;
+      }
+
+      console.log("Received search query:", searchQuery);
+
+      // You can perform any processing or database operations here
+
+      // Send a response
+      res.status(200).json({ message: `Received search query: ${searchQuery}` });
+    } catch (error) {
+      console.error("Error handling search query:", error);
+      res.status(500).send("Internal Server Error");
     }
-
-    const searchQuery = req.body.searchQuery;
-
-    if (!searchQuery) {
-      res.status(400).send("Search query cannot be empty.");
-      return;
-    }
-
-    console.log("Received search query:", searchQuery);
-
-    // You can perform any processing or database operations here
-
-    // Send a response
-    res.status(200).json({ message: `Received search query: ${searchQuery}` });
-  } catch (error) {
-    console.error("Error handling search query:", error);
-    res.status(500).send("Internal Server Error");
-  }
+  });
 });
