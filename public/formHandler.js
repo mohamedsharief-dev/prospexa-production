@@ -31,21 +31,22 @@ document.addEventListener('DOMContentLoaded', function() {
       // Define the maximum number of cards you have
       const maxCards = 2;
 
-      // Clear existing cards if any
+      // Reset specific elements inside existing cards
       for (let i = 1; i <= maxCards; i++) {
-        const cardContainer = document.getElementById(`resultscard${i}`);
-        if (cardContainer) {
-          cardContainer.innerHTML = '';
-        }
+        let titleElement = document.getElementById(`businessinfotitle${i}`);
+        let webElement = document.getElementById(`businesswebaddress${i}`);
+        let phoneElement = document.getElementById(`businessphoneaddress${i}`);
+
+        if (titleElement) titleElement.innerText = '';
+        if (webElement) webElement.innerText = '';
+        if (phoneElement) phoneElement.innerText = '';
       }
 
       // Iterate through the filtered data and populate the HTML cards
-      // Limit the loop to the number of cards you actually have
       for (let i = 0; i < Math.min(data.filteredData.length, maxCards); i++) {
         let item = data.filteredData[i];
         console.log(`Populating card ${i + 1} with:`, item);  // Debugging line
 
-        // New Error Handling: Check if each element exists before updating it
         let titleElement = document.getElementById(`businessinfotitle${i + 1}`);
         let webElement = document.getElementById(`businesswebaddress${i + 1}`);
         let phoneElement = document.getElementById(`businessphoneaddress${i + 1}`);
