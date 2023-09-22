@@ -26,10 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(response => response.json())
     .then(data => {
-      console.log('Success from aggregateApiCalls:', data);
-
-      // New Debugging Line: Check the integrity of returned data
-      console.log("Data to be populated:", data.filteredData);
+      console.log('Success from aggregateApiCalls:', data);  // Debugging line
 
       // Define the maximum number of cards you have
       const maxCards = 2;
@@ -46,22 +43,34 @@ document.addEventListener('DOMContentLoaded', function() {
       // Limit the loop to the number of cards you actually have
       for (let i = 0; i < Math.min(data.filteredData.length, maxCards); i++) {
         let item = data.filteredData[i];
-        // New Debugging Lines: Log each item to be populated
-        console.log(`Populating card ${i + 1} with:`, item);
-        
-        document.getElementById(`businessinfotitle${i + 1}`).innerText = item.name;
-        document.getElementById(`businesswebaddress${i + 1}`).innerText = `🌐 Website; ${item.website}`;
-        document.getElementById(`businessphoneaddress${i + 1}`).innerText = `📞 Sales Phone Number; ${item.phoneNumber}`;
+        console.log(`Populating card ${i + 1} with:`, item);  // Debugging line
+
+        // New Error Handling: Check if each element exists before updating it
+        let titleElement = document.getElementById(`businessinfotitle${i + 1}`);
+        let webElement = document.getElementById(`businesswebaddress${i + 1}`);
+        let phoneElement = document.getElementById(`businessphoneaddress${i + 1}`);
+
+        if (titleElement) {
+          titleElement.innerText = item.name;
+        } else {
+          console.error(`businessinfotitle${i + 1} not found`);
+        }
+
+        if (webElement) {
+          webElement.innerText = item.website;
+        } else {
+          console.error(`businesswebaddress${i + 1} not found`);
+        }
+
+        if (phoneElement) {
+          phoneElement.innerText = item.phoneNumber;
+        } else {
+          console.error(`businessphoneaddress${i + 1} not found`);
+        }
       }
     })
     .catch((error) => {
       console.error('Error:', error);
-
-      // New Error Handling: Show error in the first result card
-      const firstCard = document.getElementById('resultscard1');
-      if (firstCard) {
-        firstCard.innerHTML = '<p>An error occurred while fetching data.</p>';
-      }
     });
 
     return false;  // Prevent the default form submission behavior
