@@ -40,7 +40,7 @@ exports.aggregateApiCalls = functions.https.onRequest((req, res) => {
       const rapidResponse = await axios.request(rapidOptions);
 
       // Limit the results to 10 and filter only required fields
-      const filteredData = rapidResponse.data.data.slice(0, 10).map(item => ({
+      const filteredData = rapidResponse.data.data.slice(0, 2).map(item => ({
         phoneNumber: item.phone_number,
         website: item.website,
         name: item.name
