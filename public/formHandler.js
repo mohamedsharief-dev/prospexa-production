@@ -15,35 +15,21 @@ document.addEventListener('DOMContentLoaded', function() {
       searchQuery: searchQuery
     };
 
-    // Make a POST request to the Firebase Cloud Function (handleSearch)
-    console.log("About to make fetch call to handleSearch");  // Debugging line
-    fetch('https://us-central1-prospexa-production.cloudfunctions.net/handleSearch', {
+    // Make a POST request to the Firebase Cloud Function (aggregateApiCalls)
+    console.log("About to make fetch call to aggregateApiCalls");  // Debugging line
+    fetch('https://us-central1-prospexa-production.cloudfunctions.net/aggregateApiCalls', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-      console.log('Success from handleSearch:', data);
-
-      // Make a POST request to the Firebase Cloud Function (aggregateApiCalls)
-      console.log("About to make fetch call to aggregateApiCalls");  // Debugging line
-      return fetch('https://us-central1-prospexa-production.cloudfunctions.net/aggregateApiCalls', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)  // Sending the same data object
-      });
+      body: JSON.stringify(data)  // Sending the data object
     })
     .then(response => response.json())
     .then(data => {
       console.log('Success from aggregateApiCalls:', data);
 
       // Populate the frontend
-      document.getElementById('firebaseDataElement').innerText = JSON.stringify(data.firebaseData);
+      // Assuming data.rapidData contains the response from RapidAPI
       document.getElementById('rapidDataElement').innerText = JSON.stringify(data.rapidData);
     })
     .catch((error) => {
