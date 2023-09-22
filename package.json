@@ -1,0 +1,14 @@
+{
+  "name": "commands",
+  "version": "1.0.0",
+  "description": "CloudFunctions",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^10.4.0"
+  }
+}
