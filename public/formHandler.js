@@ -80,34 +80,49 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Function to update the image within the result card
-const updateResultCardImage = (resultCardID, logoEndpoint) => {
-  const resultCardElement = document.getElementById(resultCardID);
-  const imgElement = resultCardElement.querySelector('img');
+const updateLogoImage = (businessWebAddressID, logoEndpoint) => {
+  // Extract the numeric part from the businessWebAddressID (e.g., "1" from "businesswebaddress1")
+  const idNumber = businessWebAddressID.replace(/\D/g, '');
+  
+  // Construct the ID for the corresponding logo (e.g., "logo1")
+  const logoID = `logo${idNumber}`;
+  
+  // Get the img element and update its src attribute
+  const imgElement = document.getElementById(logoID);
   imgElement.src = logoEndpoint;
 };
 
-// New code: Listen for changes to the businesswebaddress1 element
+// New code: Listen for changes to the businesswebaddress elements
 document.addEventListener('DOMContentLoaded', function() {
-  const businessWebAddressElement = document.getElementById('businesswebaddress1');
+  // Define an array of businessWebAddress IDs
+  const businessWebAddressIDs = ['businesswebaddress1', 'businesswebaddress2']; // Add more IDs as needed
+  
+  businessWebAddressIDs.forEach(id => {
+    const businessWebAddressElement = document.getElementById(id);
+  
+   // Observer to watch for changes in the href attribute of the businessWebAddressElement
+const observer = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    if (mutation.type === 'attributes' && mutation.attributeName === 'href') {
+      let newDomain = businessWebAddressElement.getAttribute('href');
+      
+      // Extract the base URL
+      const urlObj = new URL(newDomain);
+      newDomain = 'https://' + urlObj.hostname;
 
-  // Observer to watch for changes in the href attribute of the businessWebAddressElement
-  const observer = new MutationObserver(function(mutations) {
-    mutations.forEach(function(mutation) {
-      if (mutation.type === 'attributes' && mutation.attributeName === 'href') {
-        const newDomain = businessWebAddressElement.getAttribute('href');
-
-        // Make an HTTP request to the Clearbit logo API to get the company logo
-        const clearbitLogoEndpoint = `https://logo.clearbit.com/${newDomain}`;
-
-        // Update the image within the resultscard1 and resultscard2 ID'd Divs
-        updateResultCardImage('resultscard1', clearbitLogoEndpoint);
-        updateResultCardImage('resultscard2', clearbitLogoEndpoint);
-      }
-    });
+      // Make an HTTP request to the Clearbit logo API to get the company logo
+      const clearbitLogoEndpoint = `https://logo.clearbit.com/${newDomain}`;
+      
+      // Update the image within the corresponding result card
+      updateLogoImage(id, clearbitLogoEndpoint);
+    }
   });
+});
 
-  // Configure the observer to watch for attribute changes
-  observer.observe(businessWebAddressElement, {
-    attributes: true,
+  
+    // Configure the observer to watch for attribute changes
+    observer.observe(businessWebAddressElement, {
+      attributes: true,
+    });
   });
 });
