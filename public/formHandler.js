@@ -28,9 +28,27 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
       console.log('Success from aggregateApiCalls:', data);
 
-      // Populate the frontend
-      // Assuming data.rapidData contains the response from RapidAPI
-      document.getElementById('rapidDataElement').innerText = JSON.stringify(data.rapidData);
+      // Clear existing cards if any
+      document.getElementById('resultsContainer').innerHTML = '';
+
+      // Populate the frontend with cards
+      // Assuming data.filteredData contains the response from RapidAPI
+      data.filteredData.forEach((item, index) => {
+        // Create a card-like div for each item
+        const card = document.createElement('div');
+        card.classList.add('card');  // Assuming "card" is a CSS class you've defined
+
+        // Populate the card with data
+        card.innerHTML = `
+          <h3>${item.name}</h3>
+          <p>Phone: ${item.phoneNumber}</p>
+          <p>Website: <a href="${item.website}" target="_blank">${item.website}</a></p>
+        `;
+
+        // Append the card to a container div (you should have this in your HTML)
+        document.getElementById('resultsContainer').appendChild(card);
+      });
+      
     })
     .catch((error) => {
       console.error('Error:', error);
