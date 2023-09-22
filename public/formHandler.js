@@ -79,6 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Function to update the image within the result card
+const updateResultCardImage = (resultCardID, logoEndpoint) => {
+  const resultCardElement = document.getElementById(resultCardID);
+  const imgElement = resultCardElement.querySelector('img');
+  imgElement.src = logoEndpoint;
+};
 
 // New code: Listen for changes to the businesswebaddress1 element
 document.addEventListener('DOMContentLoaded', function() {
@@ -92,11 +98,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Make an HTTP request to the Clearbit logo API to get the company logo
         const clearbitLogoEndpoint = `https://logo.clearbit.com/${newDomain}`;
-        
-        // Update the image within the resultscard1 ID'd Div
-        const resultCardElement = document.getElementById('resultscard1');
-        const imgElement = resultCardElement.querySelector('img');
-        imgElement.src = clearbitLogoEndpoint;
+
+        // Update the image within the resultscard1 and resultscard2 ID'd Divs
+        updateResultCardImage('resultscard1', clearbitLogoEndpoint);
+        updateResultCardImage('resultscard2', clearbitLogoEndpoint);
       }
     });
   });
