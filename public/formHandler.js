@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
         headers: {
           'Content-Type': 'application/json'
         },
-        // Add any necessary data for aggregateApiCalls here
+        body: JSON.stringify(data)  // Sending the same data object
       });
     })
     .then(response => response.json())
