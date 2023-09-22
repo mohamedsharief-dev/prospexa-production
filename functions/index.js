@@ -30,7 +30,7 @@ exports.aggregateApiCalls = functions.https.onRequest((req, res) => {
       const rapidOptions = {
         method: 'GET',
         url: 'https://local-business-data.p.rapidapi.com/search',
-        params: { query: searchQuery, limit: 10 },  // Limit to 10 results
+        params: { query: searchQuery /*, other params */ },
         headers: {
           'X-RapidAPI-Key': '4d63a58758msh683778da742ab1cp1bdf74jsn656a9a0bfe87',  // Replace with your actual API key
           'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
@@ -39,9 +39,8 @@ exports.aggregateApiCalls = functions.https.onRequest((req, res) => {
 
       const rapidResponse = await axios.request(rapidOptions);
 
-      // Filter and limit the data
-      const filteredData = rapidResponse.data.data.slice(0, 10).map((item, index) => ({
-        id: index,  // Assigning an index as an ID
+      // Limit the results to 10 and filter only required fields
+      const filteredData = rapidResponse.data.data.slice(0, 10).map(item => ({
         phoneNumber: item.phone_number,
         website: item.website,
         name: item.name
@@ -49,7 +48,6 @@ exports.aggregateApiCalls = functions.https.onRequest((req, res) => {
 
       // Return the filtered data to the client
       res.json({ filteredData });
-      
     } catch (error) {
       console.error("An error occurred:", error);
       res.status(500).send('An error occurred');

@@ -29,24 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Success from aggregateApiCalls:', data);
 
       // Clear existing cards if any
-      document.getElementById('resultsContainer').innerHTML = '';
-
-      // Populate the frontend with cards
-      // Assuming data.filteredData contains the response from RapidAPI
+      for (let i = 1; i <= data.filteredData.length; i++) {
+        const cardContainer = document.getElementById(`resultscard${i}`);
+        if (cardContainer) {
+          cardContainer.innerHTML = '';
+        }
+      }
+      
+      // Iterate through the filtered data and populate the HTML cards
       data.filteredData.forEach((item, index) => {
-        // Create a card-like div for each item
-        const card = document.createElement('div');
-        card.classList.add('card');  // Assuming "card" is a CSS class you've defined
-
-        // Populate the card with data
-        card.innerHTML = `
-          <h3>${item.name}</h3>
-          <p>Phone: ${item.phoneNumber}</p>
-          <p>Website: <a href="${item.website}" target="_blank">${item.website}</a></p>
-        `;
-
-        // Append the card to a container div (you should have this in your HTML)
-        document.getElementById('resultsContainer').appendChild(card);
+        document.getElementById(`businessinfotitle${index + 1}`).innerText = item.name;
+        document.getElementById(`businesswebaddress${index + 1}`).innerText = `🌐 Website; ${item.website}`;
+        document.getElementById(`businessphoneaddress${index + 1}`).innerText = `📞 Sales Phone Number; ${item.phoneNumber}`;
       });
       
     })
