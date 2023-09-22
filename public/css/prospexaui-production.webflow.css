@@ -361,8 +361,8 @@
 
 .searchcontainer {
   z-index: 1000;
-  width: 45%;
-  min-width: 45%;
+  width: 485px;
+  min-width: 485px;
   background-color: #333;
   border-radius: 20px;
   flex-wrap: nowrap;
@@ -381,6 +381,11 @@
   justify-content: center;
   align-items: center;
   display: flex;
+  width: 485px;
+  border-radius: 15px;
+  background-color: #333;
+  border: #333;
+  padding: 10px;
 }
 
 .text-field {
@@ -409,7 +414,7 @@
   color: #000;
   background-color: #89fac4;
   border-radius: 20px;
-  margin-right: 5px;
+  width: 150px;
 }
 
 .div-block {
@@ -882,4 +887,32 @@
   .nav-button-wrapper {
     width: auto;
   }
+}
+
+
+.formGeneral {
+ 
+  width: 488.504px;
+height: 44px;
+flex-shrink: 0;
+border-radius: 26px;
+background: #000;
+
+}
+
+.formLower {
+
+  display: flex;
+width: 481px;
+height: 41px;
+flex-direction: row;
+justify-content: center;
+flex-shrink: 0;
+color: #A3A3A3;
+font-family: Montserrat;
+font-size: 14px;
+font-style: italic;
+font-weight: 500;
+line-height: 52%; /* 7.28px */
+
 }
