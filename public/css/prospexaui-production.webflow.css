@@ -253,11 +253,11 @@
     right: 12%;
   }
 }
-@media (min-width: 1000px) {
+@media (min-width: 992px) and (max-width: 1024px) {
   .resultscard {
     z-index: 1000;
     width: 320px;
-    height: 610px;
+    height: 633px;
     opacity: 1;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
@@ -265,37 +265,46 @@
     border: 1px solid #fff;
     border-radius: 20px;
     position: absolute;
-    top: 199px;
+    top: 140px;
     bottom: 0%;
     left: auto;
-    right: 6%;
+    right: 10%;
   }
-}
-
-
-.resultscard {
-  z-index: 1000;
-  width: 413px;
-  height: 551px;
-  opacity: 1;
-  -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-  background-color: rgba(74, 72, 72, .01);
-  border: 1px solid #fff;
-  border-radius: 20px;
-  position: absolute;
-  top: 135px;
-  bottom: 0%;
-  left: auto;
-  right: 13%;
-}
 
 .resultscard._2 {
   z-index: 900;
-  top: 136px;
-  right: 7%;
+  top: 140px;
+  right: 4%;
   transform: scale(.9);
 }
+
+  .heading {
+    color: #fff;
+    font-family: Montserrat, sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 30px;
+}
+  .w-layout-blockcontainer {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  .text-block {
+    max-width: 80%;
+    color: #bdbdbd;
+    font-family: Montserrat, sans-serif;
+    font-size: 1em;
+    font-style: italic;
+    line-height: 22px;
+  
+
+}
+
+
 
 .lottie-animation {
   position: absolute;
@@ -348,26 +357,11 @@
   position: relative;
 }
 
-.heading {
-  color: #fff;
-  font-family: Montserrat, sans-serif;
-  font-size: 2.5em;
-  font-weight: 700;
-  line-height: 37px;
-}
 
 .text-span {
   color: #89fac4;
 }
 
-.text-block {
-  max-width: 90%;
-  color: #bdbdbd;
-  font-family: Montserrat, sans-serif;
-  font-size: 1.2em;
-  font-style: italic;
-  line-height: 23px;
-}
 
 .text-span-2, .text-span-3 {
   color: #89fac4;
@@ -401,7 +395,7 @@
   width: 455px;
   min-width: 455px;
   background-color: #333;
-  border-radius: 30px;
+  border-radius: 12px;
   flex-wrap: nowrap;
   order: 0;
   justify-content: center;
@@ -503,8 +497,9 @@
 }
 
 .bigbutton {
-  color: #000;
-  background-color: #89fac4;
+  color: #ffffff;
+  background-color: rgba(137, 250, 196, 0);
+  border: 1px solid #89fac4;
   border-radius: 9px;
   font-family: Montserrat, sans-serif;
   font-weight: 500;
@@ -529,6 +524,7 @@
   font-family: Montserrat, sans-serif;
   font-size: 14px;
   text-decoration: underline;
+  margin-top: -41px;
 }
 
 .businessinfo {
@@ -670,7 +666,7 @@ width: 155px;
   border: 1px solid #89fac4;
   border-radius: 7px;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   padding: 0 10px;
   display: flex;
@@ -981,4 +977,5 @@ font-style: italic;
 font-weight: 500;
 line-height: 52%; /* 7.28px */
 
+}
 }
