@@ -215,11 +215,11 @@
 }
 
 .herocontainer {
-  width: 84.9998%;
+  width: 100vh;
   height: 71%;
-  max-width: 85%;
+  max-width: 100vh;
   min-height: 600px;
-  min-width: 85%;
+  min-width: 100vh;
   grid-column-gap: 14px;
   grid-row-gap: 14px;
   -webkit-backdrop-filter: blur(20px);
@@ -235,6 +235,43 @@
   display: flex;
   overflow: visible;
 }
+@media (min-width: 1750px) {
+  .resultscard {
+    z-index: 1000;
+    width: 320px;
+    height: 610px;
+    opacity: 1;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    background-color: rgba(74, 72, 72, .01);
+    border: 1px solid #fff;
+    border-radius: 20px;
+    position: absolute;
+    top: 199px;
+    bottom: 0%;
+    left: auto;
+    right: 12%;
+  }
+}
+@media (min-width: 1000px) {
+  .resultscard {
+    z-index: 1000;
+    width: 320px;
+    height: 610px;
+    opacity: 1;
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    background-color: rgba(74, 72, 72, .01);
+    border: 1px solid #fff;
+    border-radius: 20px;
+    position: absolute;
+    top: 199px;
+    bottom: 0%;
+    left: auto;
+    right: 6%;
+  }
+}
+
 
 .resultscard {
   z-index: 1000;
@@ -250,7 +287,7 @@
   top: 199px;
   bottom: 0%;
   left: auto;
-  right: 7%;
+  right: 13%;
 }
 
 .resultscard._2 {
@@ -361,10 +398,10 @@
 
 .searchcontainer {
   z-index: 1000;
-  width: 485px;
-  min-width: 485px;
+  width: 455px;
+  min-width: 455px;
   background-color: #333;
-  border-radius: 20px;
+  border-radius: 30px;
   flex-wrap: nowrap;
   order: 0;
   justify-content: center;
@@ -382,10 +419,11 @@
   align-items: center;
   display: flex;
   width: 485px;
-  border-radius: 15px;
+  border-radius: 30px;
   background-color: #333;
   border: #333;
   padding: 10px;
+  margin-left: 10px;
 }
 
 .text-field {
@@ -414,10 +452,15 @@
   color: #000;
   background-color: #89fac4;
   border-radius: 20px;
-  width: 190px;
+  width: 145px;
+  height: 38px;
   display: flex;
   align-items: center;
+  position: absolute;
+  left: 345px;
   justify-content: center;
+  margin-top: 1px;
+
 }
 
 .div-block {
@@ -907,7 +950,7 @@ background: #000;
 .formLower {
 
   display: flex;
-width: 481px;
+width: 449px;
 height: 41px;
 flex-direction: row;
 justify-content: center;
