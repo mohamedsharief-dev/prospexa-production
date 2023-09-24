@@ -238,7 +238,7 @@
   <script src="js/webflow.js" type="text/javascript"></script>
 
   <script>
-
+// For "Next Lead" button
 document.addEventListener("DOMContentLoaded", function () {
   const nextLeadButton = document.getElementById("nextLead");
 
@@ -250,6 +250,9 @@ document.addEventListener("DOMContentLoaded", function () {
   nextLeadButton.addEventListener("click", function (event) {
     event.preventDefault(); // Prevent default behavior of the anchor tag
 
+    // Get the viewport width
+    const viewportWidth = window.innerWidth;
+
     // Handle .resultscard._2
     const targetCard2 = document.querySelector(".resultscard._2");
     if (targetCard2 === null) {
@@ -257,8 +260,11 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       targetCard2.style.zIndex = "1100";
       targetCard2.style.top = "140px";
-      targetCard2.style.right = "7%";
       targetCard2.style.transform = "scale(1)";
+      targetCard2.style.height = "640px";
+
+      // Apply styles based on viewport size
+      targetCard2.style.right = viewportWidth <= 768 ? "5%" : "7%";
     }
 
     // Handle .resultscard
@@ -268,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       targetCard.style.zIndex = "1000";
       targetCard.style.width = "379px";
-      targetCard.style.height = "543px";
+      targetCard.style.height = "640px";
       targetCard.style.opacity = "1";
       targetCard.style.backdropFilter = "blur(20px)";
       targetCard.style.backgroundColor = "rgba(74, 72, 72, .01)";
@@ -276,58 +282,73 @@ document.addEventListener("DOMContentLoaded", function () {
       targetCard.style.borderRadius = "20px";
       targetCard.style.position = "absolute";
       targetCard.style.top = "140px";
-      targetCard.style.right = "13%";
       targetCard.style.transform = "scale(0.9)";
+
+      // Apply styles based on viewport size
+      targetCard.style.right = viewportWidth <= 768 ? "10%" : "13%";
+      targetCard.style.right = viewportWidth <= 768 ? "10%" : "13%";
+      
     }
   });
 });
+
 
   </script>
 
 <script>
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const nextLeadButton = document.getElementById("PreviousLead");
-  
-    if (nextLeadButton === null) {
-      console.log("Next Lead button not found.");
-      return;
+// For "Previous Lead" button
+document.addEventListener("DOMContentLoaded", function () {
+  const prevLeadButton = document.getElementById("PreviousLead");
+
+  if (prevLeadButton === null) {
+    console.log("Previous Lead button not found.");
+    return;
+  }
+
+  prevLeadButton.addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default behavior of the anchor tag
+
+    // Get the viewport width
+    const viewportWidth = window.innerWidth;
+
+    // Handle .resultscard._2
+    const targetCard2 = document.querySelector(".resultscard._2");
+    if (targetCard2 === null) {
+      console.log("Target card with class .resultscard._2 not found.");
+    } else {
+      targetCard2.style.zIndex = "900";
+      targetCard2.style.top = "140px";
+      targetCard2.style.transform = "scale(0.9)";
+
+      // Apply styles based on viewport size
+      targetCard2.style.right = viewportWidth <= 1140 ? "5%" : "7%";
     }
-  
-    nextLeadButton.addEventListener("click", function (event) {
-      event.preventDefault(); // Prevent default behavior of the anchor tag
-  
-      // Handle .resultscard._2
-      const targetCard2 = document.querySelector(".resultscard._2");
-      if (targetCard2 === null) {
-        console.log("Target card with class .resultscard._2 not found.");
-      } else {
-        targetCard2.style.zIndex = "900";
-        targetCard2.style.top = "140px";
-        targetCard2.style.right = "7%";
-        targetCard2.style.transform = "scale(0.9)";
-      }
-  
-      // Handle .resultscard
-      const targetCard = document.querySelector(".resultscard");
-      if (targetCard === null) {
-        console.log("Target card with class .resultscard not found.");
-      } else {
-        targetCard.style.zIndex = "1000";
-        targetCard.style.width = "379px";
-        targetCard.style.height = "543px";
-        targetCard.style.opacity = "1";
-        targetCard.style.backdropFilter = "blur(20px)";
-        targetCard.style.backgroundColor = "rgba(74, 72, 72, .01)";
-        targetCard.style.border = "1px solid #fff";
-        targetCard.style.borderRadius = "20px";
-        targetCard.style.position = "absolute";
-        targetCard.style.top = "140px";
-        targetCard.style.right = "18%";
-        targetCard.style.transform = "scale(1)";
-      }
-    });
+
+    // Handle .resultscard
+    const targetCard = document.querySelector(".resultscard");
+    if (targetCard === null) {
+      console.log("Target card with class .resultscard not found.");
+    } else {
+      targetCard.style.zIndex = "1000";
+      targetCard.style.width = "320px";
+      targetCard.style.height = "640px";
+      targetCard.style.opacity = "1";
+      targetCard.style.backdropFilter = "blur(20px)";
+      targetCard.style.backgroundColor = "rgba(74, 72, 72, .01)";
+      targetCard.style.border = "1px solid #fff";
+      targetCard.style.borderRadius = "20px";
+      targetCard.style.position = "absolute";
+      targetCard.style.top = "140px";
+      targetCard.style.transform = "scale(1)";
+
+      // Apply styles based on viewport size
+      targetCard.style.right = viewportWidth <= 1140 ? "10%" : "18%";
+
+      
+    }
   });
+});
   
     </script>
 
