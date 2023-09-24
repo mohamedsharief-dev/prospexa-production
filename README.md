@@ -4,7 +4,6 @@ Prospexa is an all-in-one SaaS platform designed to streamline business processe
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Prospexa - README</title>
 </head>
 <body>
 
