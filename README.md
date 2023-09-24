@@ -7,8 +7,6 @@ Prospexa is an all-in-one SaaS platform designed to streamline business processe
 </head>
 <body>
 
-  <h1>Prospexa - Your SaaS Solution</h1>
-
   <h2>Table of Contents</h2>
   <ul>
     <li><a href="#overview">Overview</a></li>
