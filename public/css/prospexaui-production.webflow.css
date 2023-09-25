@@ -412,6 +412,7 @@
   padding: 6px 0;
   display: block;
   position: static;
+  padding-right: 5px;
 }
 
 .form {
@@ -428,6 +429,12 @@
   color: #a6b1bf;
 }
 
+/* New CSS for the wrapper */
+.button-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
 .text-field {
   background-color: rgba(255, 255, 255, 0);
   border: 1px #000;
@@ -458,10 +465,10 @@
   height: 38px;
   display: flex;
   align-items: center;
-  position: absolute;
+  position: static;
   left: 345px;
   justify-content: center;
-  margin-top: -37px;
+  margin-top: -38px;
 
 }
 
@@ -1058,7 +1065,9 @@ width: 165px;
   padding: 6px 0;
   display: block;
   position: static;
+  padding-right: 5px;
 }
+
 
 .form {
   flex-direction: row;
@@ -1072,6 +1081,13 @@ width: 165px;
   padding: 10px;
   margin-left: 10px;
   color: #a6b1bf;
+}
+
+/* New CSS for the wrapper */
+.button-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .text-field {
@@ -1104,7 +1120,7 @@ width: 165px;
   height: 38px;
   display: flex;
   align-items: center;
-  position: absolute;
+  position: static;
   left: 345px;
   justify-content: center;
   margin-top: -38px;
@@ -1626,6 +1642,7 @@ width: 165px;
 .searchcontainer {
   z-index: 1000;
   width: 455px;
+  height: 50px;
   min-width: 455px;
   background-color: #333;
   border-radius: 12px;
@@ -1638,6 +1655,7 @@ width: 165px;
   padding: 6px 0;
   display: block;
   position: static;
+  padding-right: 5px;
 }
 
 .form {
@@ -1652,6 +1670,13 @@ width: 165px;
   padding: 10px;
   margin-left: 10px;
   color: #a6b1bf;
+}
+
+/* New CSS for the wrapper */
+.button-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .text-field {
@@ -1684,10 +1709,10 @@ width: 165px;
   height: 38px;
   display: flex;
   align-items: center;
-  position: absolute;
-  left: 345px;
+  position: static;
   justify-content: center;
   margin-top: -37px;
+
 
 }
 
@@ -2219,6 +2244,7 @@ width: 165px;
   padding: 6px 0;
   display: block;
   position: static;
+  padding-right: 5px;
 }
 
 .form {
@@ -2233,6 +2259,13 @@ width: 165px;
   padding: 10px;
   margin-left: 10px;
   color: #a6b1bf;
+}
+
+/* New CSS for the wrapper */
+.button-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .text-field {
@@ -2265,8 +2298,7 @@ width: 165px;
   height: 38px;
   display: flex;
   align-items: center;
-  position: absolute;
-  left: 345px;
+  position: static;
   justify-content: center;
   margin-top: -37px;
 
@@ -2801,6 +2833,7 @@ width: 165px;
   padding: 6px 0;
   display: block;
   position: static;
+  padding-right: 5px;
 }
 
 .form {
@@ -2816,6 +2849,14 @@ width: 165px;
   margin-left: 10px;
   color: #a6b1bf;
 }
+
+/* New CSS for the wrapper */
+.button-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
 
 .text-field {
   background-color: rgba(255, 255, 255, 0);
@@ -2847,8 +2888,7 @@ width: 165px;
   height: 38px;
   display: flex;
   align-items: center;
-  position: absolute;
-  left: 345px;
+  position: static;
   justify-content: center;
   margin-top: -37px;
 
