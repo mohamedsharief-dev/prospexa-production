@@ -263,7 +263,7 @@
   .resultscard {
     z-index: 1000;
     width: 320px;
-    height: 635px;
+    height: 575px;
     opacity: 1;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
@@ -271,7 +271,7 @@
     border: 1px solid #fff;
     border-radius: 20px;
     position: absolute;
-    top: 140px;
+    top: 145px;
     bottom: 0%;
     left: auto;
     right: 10%;
@@ -915,7 +915,7 @@ width: 165px;
   .resultscard {
     z-index: 1000;
     width: 332px;
-    height: 630px;
+    height: 575px;
     opacity: 1;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
@@ -2683,7 +2683,7 @@ width: 165px;
   .resultscard {
     z-index: 1000;
     width: 379px;
-    height: 640px;
+    height: 700px;
     opacity: 1;
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
@@ -2691,7 +2691,7 @@ width: 165px;
     border: 1px solid #fff;
     border-radius: 20px;
     position: absolute;
-    top: 140px;
+    top: 170px;
     bottom: 0%;
     left: auto;
     right: 16%;
@@ -2699,7 +2699,7 @@ width: 165px;
 
 .resultscard._2 {
   z-index: 900;
-  top: 140px;
+  top: 170px;
   right: 7%;
   transform: scale(.9);
   
