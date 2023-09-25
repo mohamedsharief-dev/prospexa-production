@@ -120,17 +120,29 @@ document.getElementById('socialMediaInfo1').addEventListener('click', function()
   });
 
   const updateLogoImage = async (businessWebAddressID, newDomain) => {
+    console.log("Attempting to update logo image"); // Debugging line
     const logoID = `logo${businessWebAddressID}`;
     const imgElement = document.getElementById(logoID);
-
+  
     try {
-      const response = await axios.get(`https://api.microlink.io?url=${encodeURIComponent(newDomain)}`);
-      if (response.data.status === 'success') {
-        const logoEndpoint = response.data.data.logo.url;
-        imgElement.src = logoEndpoint;
+      // Make a POST request to the new Firebase function
+      const response = await fetch('https://us-central1-prospexa-production.cloudfunctions.net/fetchCompanyLogo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ websiteUrl: newDomain })
+      });
+  
+      const data = await response.json();
+      console.log("Received data from Firebase function:", data); // Debugging line
+  
+      if (data.logoEndpoint) {
+        imgElement.src = data.logoEndpoint;
       } else {
-        console.log('Failed to fetch logo from Microlink API');
+        console.log('Failed to fetch logo from Firebase function');
       }
+  
     } catch (error) {
       console.log('An error occurred while fetching the logo:', error);
     }
@@ -138,22 +150,24 @@ document.getElementById('socialMediaInfo1').addEventListener('click', function()
 
   const businessWebAddressIDs = ['businesswebaddress1', 'businesswebaddress2'];
 
-  businessWebAddressIDs.forEach(id => {
-    const businessWebAddressElement = document.getElementById(id);
+businessWebAddressIDs.forEach(id => {
+  const businessWebAddressElement = document.getElementById(id);
 
-    const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'href') {
-          let newDomain = businessWebAddressElement.getAttribute('href');
-          const urlObj = new URL(newDomain);
-          newDomain = 'https://' + urlObj.hostname;
-          updateLogoImage(id.replace('businesswebaddress', ''), newDomain);
-        }
-      });
-    });
-
-    observer.observe(businessWebAddressElement, {
-      attributes: true,
+  const observer = new MutationObserver(function(mutations) {
+    console.log("MutationObserver triggered"); // Debugging line
+    mutations.forEach(function(mutation) {
+      if (mutation.type === 'attributes' && mutation.attributeName === 'href') {
+        let newDomain = businessWebAddressElement.getAttribute('href');
+        const urlObj = new URL(newDomain);
+        newDomain = 'https://' + urlObj.hostname;
+        updateLogoImage(id.replace('businesswebaddress', ''), newDomain);
+      }
     });
   });
+
+  observer.observe(businessWebAddressElement, {
+    attributes: true,
+  });
+});
+  
 });

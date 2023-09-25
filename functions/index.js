@@ -54,6 +54,33 @@ exports.aggregateApiCalls = functions.https.onRequest((req, res) => {
     }
   });
 });
+
+exports.fetchCompanyLogo = functions.https.onRequest((req, res) => {
+  corsHandler(req, res, async () => {
+    try {
+      const websiteUrl = req.body.websiteUrl;  // Extract website URL from request body
+
+      if (!websiteUrl) {
+        res.status(400).send("Website URL cannot be empty.");
+        return;
+      }
+
+      // Call the Microlink API
+      const microlinkResponse = await axios.get(`https://api.microlink.io?url=${encodeURIComponent(websiteUrl)}`);
+
+      if (microlinkResponse.data.status === 'success') {
+        const logoEndpoint = microlinkResponse.data.data.logo.url;
+        res.json({ logoEndpoint });
+      } else {
+        res.status(400).send('Failed to fetch logo from Microlink API');
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+      res.status(500).send('An error occurred');
+    }
+  });
+});
+
 //getSocialMediaLinks Function
 exports.getSocialMediaLinks = functions.https.onRequest((req, res) => {
   corsHandler(req, res, async () => {  
