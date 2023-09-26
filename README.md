@@ -6,7 +6,7 @@
 </head>
 <body>
 
-  <h1>Prospexa: B2B AI-Powered Lead Generation Tool</h1>
+  <h1>Prospexa: B2B Competitor Analysis & Lead Generation Tool</h1>
 
   <h2>Project Overview</h2>
   <p>Prospexa is a sophisticated B2B lead generation tool that employs AI to extract valuable business information online. It is designed to provide details such as decision-makers, their emails and phone numbers, company employees, and much more. Prospexa also serves as a bulk business search tool and a competitor marketing performance analyzer, offering insights into competitors' Facebook and Google ads.</p>
