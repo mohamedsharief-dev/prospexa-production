@@ -19,25 +19,6 @@
     <li>Netlify</li>
   </ul>
 
-  <h2>Code Overview</h2>
-  <h3>formHandler.js</h3>
-  <code>
-  <!-- Code for formHandler.js -->
-  </code>
-  <p>This file handles the form events, data aggregation and manipulates the DOM based on the received data.</p>
-
-  <h3>index.js</h3>
-  <code>
-  <!-- Code for index.js -->
-  </code>
-  <p>This file serves as the entry point for the application, initializing key functionalities.</p>
-
-  <h3>index.html</h3>
-  <code>
-  <!-- Code for index.html -->
-  </code>
-  <p>This file provides the structure of the web page and includes various elements that are manipulated by JavaScript.</p>
-
   <h2>Contributions</h2>
   <p>As this is a private project, contributions are not allowed.</p>
 
