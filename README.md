@@ -15,6 +15,9 @@
   <ul>
     <li>Vanilla JavaScript</li>
     <li>Node.js</li>
+    <li>MicroLinkAPI</li>
+    <li>RapidAPI</li>
+    <li>MetaGraphAPI</li>
     <li>Firebase</li>
     <li>Netlify</li>
   </ul>
