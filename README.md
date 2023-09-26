@@ -50,19 +50,13 @@ Prospexa is an all-in-one SaaS platform designed to streamline business processe
     <li><strong>Resource Allocation</strong>: Assign tasks to team members.</li>
   </ul>
 
-  <h2>Task 7: Documentation</h2>
+  <h2>Task 7: Documentation & Deploy 🚀</h2>
   <ul>
     <li><strong>Technical Documentation</strong>: Create detailed technical guides.</li>
     <li><strong>User Documentation</strong>: Draft user manuals or FAQs.</li>
     <li><strong>Project Plan</strong>: Create a comprehensive project plan document encapsulating all the above points.</li>
   </ul>
 
-  <h2>Task 8: Review &amp; Approval</h2>
-  <ul>
-    <li><strong>Internal Review</strong>: Team members review the documentation for any missing or unclear points.</li>
-    <li><strong>Stakeholder Review</strong>: Present the project plan to stakeholders for feedback.</li>
-    <li><strong>Approval</strong>: Obtain formal approval to proceed with the development.</li>
-  </ul>
 
 </body>
 </html>
