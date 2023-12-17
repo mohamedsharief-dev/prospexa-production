@@ -1,0 +1,31 @@
+.body {
+  background-image: linear-gradient(135deg, #000, #1d1a1a);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.lottie {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.lottie-animation {
+  width: 30%;
+}
+
+.top1 {
+  color: #e4e4e4;
+  margin-bottom: 22px;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.top1.under {
+  color: #a8a2a2;
+  font-size: 27px;
+  font-weight: 400;
+}
